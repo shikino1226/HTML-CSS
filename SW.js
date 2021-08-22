@@ -30,9 +30,12 @@ function stopWatch(){
   display.innerHTML = hours + ":" + minutes + ":" + seconds + ":" + milliseconds;
 }
 
+
 start.addEventListener("click",function(){
   timerId = setInterval(stopWatch, 100);
   start.disabled = true;
+  stop.disabled = false;
+  reset.disabled = false;
 });
 
 
@@ -40,6 +43,7 @@ stop.addEventListener("click",function(event){
   clearInterval(timerId);
   start.disabled = false;
   stop.disabled = true;
+  reset.disabled = false;
 });
 
 
@@ -50,5 +54,4 @@ reset.addEventListener("click",function(){
   minutes = 0;
   seconds = 0;
   milliseconds = 0;
-  stop.disabled = false;
 });
